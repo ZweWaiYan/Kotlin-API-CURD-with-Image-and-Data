@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigator_main"
+    app:startDestination="@id/getUserFragment">
+
+    <fragment
+        android:id="@+id/getUserFragment"
+        android:name="com.letuse.kotlincurddataandimage.ui.Get.GetUserFragment"
+        android:label="fragment_get_user"
+        tools:layout="@layout/fragment_get_user" >
+        <action
+            android:id="@+id/action_getUserFragment_to_editDeleteUserFragment"
+            app:destination="@id/editDeleteUserFragment" />
+        <action
+            android:id="@+id/action_getUserFragment_to_addUserFragment"
+            app:destination="@id/addUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addUserFragment"
+        android:name="com.letuse.kotlincurddataandimage.ui.Add.AddUserFragment"
+        android:label="fragment_add_user"
+        tools:layout="@layout/fragment_add_user" />
+    <fragment
+        android:id="@+id/editDeleteUserFragment"
+        android:name="com.letuse.kotlincurddataandimage.ui.Edit_And_Delete.EditDeleteUserFragment"
+        android:label="fragment_edit_delete_user"
+        tools:layout="@layout/fragment_edit_delete_user" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+</navigation>
