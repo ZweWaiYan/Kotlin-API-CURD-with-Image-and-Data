@@ -4,7 +4,6 @@ import com.letuse.kotlincurddataandimage.model.UserModelItem
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 
 class ApiClient {
 
@@ -19,8 +18,8 @@ class ApiClient {
         apiInterface = retrofit.create(ApiInterface::class.java)
     }
 
-    fun addUsers(name: String): Call<List<UserModelItem>> {
-        return apiInterface.addUsers(name)
+    fun addUsers(name: String , age: String , job: String): Call<List<UserModelItem>> {
+        return apiInterface.addUsers(name , age , job)
     }
 
     fun getUsers() : Call<List<UserModelItem>>{
@@ -31,7 +30,7 @@ class ApiClient {
         return apiInterface.deleteUsers(ID)
     }
 
-    fun editUsers(ID: String , Name: String) : Call<List<UserModelItem>>{
-        return apiInterface.editUsers(ID,Name)
+    fun editUsers(ID: String , Name: String , age: String , job: String) : Call<List<UserModelItem>>{
+        return apiInterface.editUsers(ID,Name,age,job)
     }
 }

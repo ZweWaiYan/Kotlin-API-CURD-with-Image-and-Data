@@ -26,8 +26,10 @@ class GetUserAdapter (var UserList : List<UserModelItem> = ArrayList<UserModelIt
 
         fun bind(userModelItem: UserModelItem){
             this.userModelItem = userModelItem
-            itemView.txtName.text = userModelItem.name.toString()
-            itemView.txtId.text = userModelItem.id.toString()
+            itemView.txtName.text = userModelItem.name
+            itemView.txtId.text = userModelItem.id
+            itemView.txtage.text = userModelItem.age
+            itemView.txtjob.text = userModelItem.job
         }
 
         override fun onClick(p0: View?) {

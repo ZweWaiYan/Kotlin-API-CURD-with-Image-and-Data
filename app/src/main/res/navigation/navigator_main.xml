@@ -33,5 +33,11 @@
         <argument
             android:name="name"
             app:argType="string" />
+        <argument
+            android:name="age"
+            app:argType="integer" />
+        <argument
+            android:name="job"
+            app:argType="string" />
     </fragment>
 </navigation>

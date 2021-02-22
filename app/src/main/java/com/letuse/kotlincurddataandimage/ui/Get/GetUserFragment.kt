@@ -1,11 +1,8 @@
 package com.letuse.kotlincurddataandimage.ui.Get
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Adapter
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -75,7 +72,7 @@ class GetUserFragment : Fragment() , GetUserAdapter.UserClickListener {
     }
 
     override fun onClick(userModelItem: UserModelItem) {
-        var action = GetUserFragmentDirections.actionGetUserFragmentToEditDeleteUserFragment(userModelItem.id.toInt(),userModelItem.name)
+        var action = GetUserFragmentDirections.actionGetUserFragmentToEditDeleteUserFragment(userModelItem.id.toInt(),userModelItem.name,userModelItem.age.toInt(),userModelItem.job)
         findNavController().navigate(action)
     }
 

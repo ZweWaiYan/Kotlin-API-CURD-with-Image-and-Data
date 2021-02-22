@@ -19,6 +19,8 @@ import retrofit2.Response
 class AddUserFragment : Fragment() {
 
     lateinit var Name : String
+    lateinit var Age : String
+    lateinit var Job : String
     lateinit var viewModel : ViewModel
 
     override fun onCreateView(
@@ -36,8 +38,10 @@ class AddUserFragment : Fragment() {
 
         btn_add_user.setOnClickListener {
             Name = edt_add_name.text.toString()
+            Age = edt_add_age.text.toString()
+            Job = edt_add_job.text.toString()
 
-            AddUser(Name)
+            AddUser(Name , Age , Job)
 
             Toast.makeText(context , "Successfully Send to API", Toast.LENGTH_SHORT).show()
             viewModel.loadUsers()
@@ -45,9 +49,9 @@ class AddUserFragment : Fragment() {
 
     }
 
-    fun AddUser(Name : String){
+    fun AddUser(Name : String , Age : String , Job : String){
         var apiClient = ApiClient()
-        var call = apiClient.addUsers(Name)
+        var call = apiClient.addUsers(Name,Age,Job)
         call.enqueue(object : Callback<List<UserModelItem>> {
             override fun onResponse(call: Call<List<UserModelItem>>, response: Response<List<UserModelItem>>) {
             }

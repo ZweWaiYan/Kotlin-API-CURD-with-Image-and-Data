@@ -11,7 +11,6 @@ import com.letuse.kotlincurddataandimage.R
 import com.letuse.kotlincurddataandimage.ViewModel
 import com.letuse.kotlincurddataandimage.api.ApiClient
 import com.letuse.kotlincurddataandimage.model.UserModelItem
-import kotlinx.android.synthetic.main.fragment_add_user.*
 import kotlinx.android.synthetic.main.fragment_edit_delete_user.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,9 +36,13 @@ class EditDeleteUserFragment : Fragment() {
         var DetailUser = arguments?.let { EditDeleteUserFragmentArgs.fromBundle(it) }
         var ID : Int = DetailUser!!.id
         var Name : String = DetailUser!!.name
+        var Job : String = DetailUser!!.job
+        var Age : Int = DetailUser!!.age
 
         txt_id_detail.setText(ID.toString())
         txt_name_detail.setText(Name)
+        txt_age_detail.setText(Age.toString())
+        txt_job_detail.setText(Job)
 
         btn_delete.setOnClickListener {
             var apiClient = ApiClient()
@@ -63,9 +66,11 @@ class EditDeleteUserFragment : Fragment() {
         btn_edit.setOnClickListener {
 
             var edited_Name = txt_name_detail.text.toString()
+            var edited_Age = txt_age_detail.text.toString()
+            var edited_Job = txt_job_detail.text.toString()
 
             var apiClient = ApiClient()
-            var call = apiClient.editUsers(ID.toString(),edited_Name)
+            var call = apiClient.editUsers(ID.toString(),edited_Name,edited_Age,edited_Job)
             call.enqueue(object : Callback<List<UserModelItem>>{
                 override fun onFailure(call: Call<List<UserModelItem>>, t: Throwable) {
 

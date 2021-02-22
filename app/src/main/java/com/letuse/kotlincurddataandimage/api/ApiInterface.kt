@@ -8,24 +8,28 @@ interface ApiInterface {
 
     @FormUrlEncoded
 
-    @POST("user")
+    @POST("users")
     fun addUsers(
-        @Field("name") name: String
+        @Field("name") name: String,
+        @Field("age") age: String,
+        @Field("job") job: String
     ): Call<List<UserModelItem>>
 
     @FormUrlEncoded
 
-    @PUT("user/{id}")
+    @PUT("users/{id}")
     fun editUsers(
         @Path("id") id: String,
-        @Field("name") name: String
+        @Field("name") name: String,
+        @Field("age") age: String,
+        @Field("job") job: String
     ): Call<List<UserModelItem>>
 
-    @GET("user")
+    @GET("users")
     fun getUsers(
     ): Call<List<UserModelItem>>
 
-    @DELETE("user/{id}")
+    @DELETE("users/{id}")
     fun deleteUsers(
         @Path("id") id: String
     ): Call<List<UserModelItem>>
